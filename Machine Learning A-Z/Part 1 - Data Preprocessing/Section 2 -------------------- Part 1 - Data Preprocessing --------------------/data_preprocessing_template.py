@@ -23,5 +23,22 @@ This is for older version: axis can be :    1) 0 - 'strategy will be performed a
 imputer = imputer.fit(X[:,1:3])                 # The "1:3" on the right of ',' represents "1 and 2" column index
 X[:,1:3] = imputer.transform(X[:,1:3])          # Transforming it in the form of table or matrix or dataset
 
+
+
+# Encoding Categorical Data
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+labelencoder_X = LabelEncoder()
+X[:,0] = labelencoder_X.fit_transform(X[:,0])
+# 3 countries are given 0,1,2. Machine may compare them mathematically for large, medium and small. To ignore that, we need Dummy Variable.
+
+ct = ColumnTransformer([('onehotencoder', OneHotEncoder(categories='auto'), [0])], remainder='passthrough')         # Creating Dummy Variables.
+# 3 different columns for 3 different categories are created and marked as '1' in the row they are present and '0' in the other rows
+X = ct.fit_transform(X)
+# onehotencoder = OneHotEncoder(categories=[0])             # Old Method
+# X = onehotencoder.fit_transform(X).toarray()
+labelencoder_Y = LabelEncoder()
+Y = labelencoder_Y.fit_transform(Y)
+
 print(X)
 print(Y)
