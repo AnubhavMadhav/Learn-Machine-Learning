@@ -43,7 +43,7 @@ Y = labelencoder_Y.fit_transform(Y)
 # Splitting the Dataset into Training Set and Test Set
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state = 0)
-
+# if we have entered the 'test_size' then there is no need to enter 'train_size', because "train_size = 1 - test_size" always
 
 # Feature Scaling
 # It is used to bring all the variables in same scale i.e. they should not vary largely, cause if they vary largely, then it may end up giving error in models which include Euclidian's Distance and even if we do not use Euclidian's Distance in our model, it willl be better if we feature scale our data so that it will work faster.
@@ -55,3 +55,16 @@ X_test = sc_X.transform(X_test)                     # We just need to transform 
 
 print(X)
 print(Y)
+
+'''
+# Necessary: 
+Importing the libraries
+Importing the dataset
+Splitting the Dataset into Training Set and Test Set
+Feature Scaling - (not everytime but only in some models)
+
+
+# Not Necessary:
+Taking Care of Missing Data
+Encoding Categorical Data
+'''
