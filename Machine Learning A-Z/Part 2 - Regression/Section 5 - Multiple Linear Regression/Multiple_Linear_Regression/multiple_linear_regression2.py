@@ -20,6 +20,10 @@ X = ct.fit_transform(X)
 # Here, we do not need to encode the Y(dependent variable) because it is not categorized (it has linear values)
 
 
+# Avoiding the Dummy Variable Trap
+X = X[:, 1:]                # Though, the library we will use will itself take care of the Dummy Variable Trap, but still we can do this
+
+
 # Splitting the Dataset into Training Set and Test Set
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state = 0)
