@@ -52,6 +52,9 @@ sc_X = StandardScaler()                         # Bringing all to the scale of "
 X_train = sc_X.fit_transform(X_train)               # We always need to fit and transform the training dataset
 X_test = sc_X.transform(X_test)                     # We just need to transform the test data set and no need to fit it, cause X_train is already fitted
 # We do not need to scale the 'Y'(dependent) variable cause it is already 'categorical' i.e. it is a classification problem whereas in some cases like regression we may need to feature scale the dependent variable too
+sc_Y = StandardScaler()
+Y_train = sc_Y.fit_transform(Y_train)
+
 
 print(X)
 print(Y)
