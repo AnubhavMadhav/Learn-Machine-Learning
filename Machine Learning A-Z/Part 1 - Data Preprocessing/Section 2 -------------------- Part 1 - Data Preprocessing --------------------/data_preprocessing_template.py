@@ -14,7 +14,7 @@ Y = dataset.iloc[:, 3].values               # For Dependent Column (Last Col in 
 
 # Taking Care of Missing Data
 from sklearn.impute import SimpleImputer
-imputer = SimpleImputer(missing_values = np.NaN, strategy = 'mean')         # default missing_val ="NaN" and default strategy = 'mean' and default axis = 0
+imputer = SimpleImputer(missing_values = np.NaN, strategy = 'mean')         # default missing_val ="np.NaN" and default strategy = 'mean' and default axis = 0
 '''
 missing_values is "np.NaN" by default or else can be an Integer
 strategy can be: 1) 'mean'          2) 'median'             3) 'most_frequent'
@@ -46,7 +46,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 # if we have entered the 'test_size' then there is no need to enter 'train_size', because "train_size = 1 - test_size" always
 
 # Feature Scaling
-# It is used to bring all the variables in same scale i.e. they should not vary largely, cause if they vary largely, then it may end up giving error in models which include Euclidian's Distance and even if we do not use Euclidian's Distance in our model, it willl be better if we feature scale our data so that it will work faster.
+# It is used to bring all the variables in same scale i.e. they should not vary largely, cause if they vary largely, then it may end up giving error in models which include Euclidian's Distance and even if we do not use Euclidian's Distance in our model, it will be better if we feature scale our data so that it will work faster.
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()                         # Bringing all to the scale of "-1 to 1"
 X_train = sc_X.fit_transform(X_train)               # We always need to fit and transform the training dataset
