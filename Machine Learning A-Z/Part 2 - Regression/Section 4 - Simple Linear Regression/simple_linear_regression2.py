@@ -30,3 +30,28 @@ y_train = sc_y.fit_transform(y_train)"""
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, Y_train)
+
+
+# Predicting the Test Set Result
+Y_pred = regressor.predict(X_test)
+
+
+# Visualising the Training Set Results
+plt.figure(1)                   # So, that we can see both Training Set and Test Set Graphs at same time
+plt.scatter(X_train, Y_train, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'green' )
+plt.title('Experience vs Salary (Training Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+
+
+# Visualising the Twst Set Results
+plt.figure(2)                   # So, that we can see both Training Set and Test Set Graphs at same time
+plt.scatter(X_test, Y_test, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'green' )             # This line may remain the same so that we can compare the model which we trained on training data set with the new test values
+plt.title('Experience vs Salary (Test Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+
+
+plt.show()                      # If we want to show both the plot at the same time, so that we can compare we have to show() it only once.
